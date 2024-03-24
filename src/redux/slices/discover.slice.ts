@@ -19,18 +19,6 @@ const initialState:IState = {
     total_pages: null
 
 };
-/*const getPage = createAsyncThunk<IMovieData, void>(
-    'discoverSlice/getPage',
-    async (_, {rejectWithValue}) => {
-        try {
-            const {data} = await movieService.getMovies();
-            return data
-        }catch (e){
-            const err = e as AxiosError
-            return rejectWithValue(err.response.data)
-        }
-    }
-)*/
 const getMovies = createAsyncThunk<IMovieData, number>(
     'discoverSlice/getMovies',
     async (page, {rejectWithValue}) => {

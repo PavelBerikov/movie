@@ -3,7 +3,7 @@ import {useAppSelector} from "../hooks";
 import {useSearchParams} from "react-router-dom";
 
 const MoviesPagination = () => {
-    const {prev, next, total_pages, page} = useAppSelector(state => state.discover);
+    const {prev, next, page} = useAppSelector(state => state.discover);
     const [, setQuery] = useSearchParams();
 
     const prevPage = () => {
