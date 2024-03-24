@@ -8,20 +8,34 @@ interface IState{
     prev: number | null,
     next: number | null,
     movies: IMovie[],
+    total_pages: number
 }
 
 const initialState:IState = {
     movies: [],
     next: null,
     page: null,
-    prev: null
-};
+    prev: null,
+    total_pages: null
 
-const getMovies = createAsyncThunk<IMovieData, void>(
-    'discoverSlice/getMovies',
+};
+/*const getPage = createAsyncThunk<IMovieData, void>(
+    'discoverSlice/getPage',
     async (_, {rejectWithValue}) => {
         try {
             const {data} = await movieService.getMovies();
+            return data
+        }catch (e){
+            const err = e as AxiosError
+            return rejectWithValue(err.response.data)
+        }
+    }
+)*/
+const getMovies = createAsyncThunk<IMovieData, number>(
+    'discoverSlice/getMovies',
+    async (page, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getMovies(page);
             return data
         }catch (e){
             const err = e as AxiosError
@@ -36,8 +50,8 @@ const slice = createSlice({
     reducers:{},
     extraReducers: builder => {
         builder.addCase(getMovies.fulfilled, (state, action) => {
-            const {results, page} = action.payload;
-            console.log(action.payload)
+            const {results, page, total_pages} = action.payload;
+            state.total_pages = total_pages
             state.movies = results
             state.page = page
             if (page !== 1){
@@ -45,7 +59,9 @@ const slice = createSlice({
                 state.next = page + 1
             }else {
                 state.prev = null
+                state.next = page + 1
             }
+            console.log(state.next)
         })
     }
 });

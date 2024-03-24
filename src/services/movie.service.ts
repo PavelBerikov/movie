@@ -4,7 +4,7 @@ import {axiosService} from "./axios.service";
 import {urls} from "../constants";
 
 class MovieService{
-    getMovies(page: number = 1):IRes<IMovieData>{
+    getMovies(page:number = 1):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page}})
     }
 }

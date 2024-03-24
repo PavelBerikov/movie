@@ -12,8 +12,8 @@ const Movies: FC = () => {
         setQuery(prev => ({...prev, page: '1'}))
     }, [])
     useEffect(() => {
-
-    })
+        dispatch(discoverActions.getMovies(+query.get('page')))
+    }, [query])
     return (
         <div>
             {/*<button onClick={() => dispatch(discoverActions.getMovies())}>Get</button>*/}
