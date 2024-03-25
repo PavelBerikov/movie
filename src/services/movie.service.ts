@@ -1,6 +1,13 @@
+import {IRes} from "../types";
+import {IGenresData} from "../interfaces/genre.interface";
+import {axiosService} from "./axios.service";
+import {urls} from "../constants";
 
 
 class MovieService{
+    getGenres(): IRes<IGenresData>{
+        return axiosService.get(urls.genreMovieList)
+    }
     /*getMovies(page:number = 1):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page}})
     }
