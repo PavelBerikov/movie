@@ -9,8 +9,10 @@ const Movies: FC = () => {
     const {movies} = useAppSelector(state => state.discover);
     const [query, setQuery] = useSearchParams();
     useEffect(() => {
-        setQuery(prev => ({...prev, page: '1'}))
-    }, [setQuery])
+        if (query.get('page') === null) {
+            setQuery({ page: '1' });
+        }
+    }, [setQuery, query])
     useEffect(() => {
         dispatch(discoverActions.getMovies(+query.get('page')))
     }, [query, dispatch])

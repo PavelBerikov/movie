@@ -49,7 +49,6 @@ const slice = createSlice({
                 state.prev = null
                 state.next = page + 1
             }
-            console.log(state.next)
         })
     }
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
 import {MainLayout} from "./layouts";
-import {MoviesPages} from "./pages";
+import {MoviesPages} from "./pages/MoviesPages";
 
 const App = () => {
     return (
