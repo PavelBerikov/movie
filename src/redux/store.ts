@@ -1,10 +1,9 @@
 import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
-import {discoverReducer, searchReducer} from "./slices";
+import {discoverReducer} from "./slices";
 
 const rootReducer = combineReducers({
-    discover: discoverReducer,
-    search: searchReducer
+    discover: discoverReducer
 });
 
 const setupStore = () => configureStore({
