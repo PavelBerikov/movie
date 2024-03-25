@@ -2,7 +2,10 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IResults, ISearch} from "../../interfaces";
 import {AxiosError} from "axios";
 import {movieService} from "../../services";
-
+interface IParams{
+    query: string;
+    page: number
+}
 interface IState {
     page: number;
     prev: number;
@@ -20,11 +23,11 @@ const initialState: IState = {
     total_page: null,
     keyWord: null
 };
-const getSearch = createAsyncThunk<ISearch, string>(
+const getSearch = createAsyncThunk<ISearch, {query: string, page:string| number}>(
     'searchSlice/getSearch',
-    async (value, {rejectWithValue}) => {
+    async ({query, page}, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.search(value);
+            const {data} = await movieService.search(query, page);
             return data
         }catch (e) {
             const err = e as AxiosError
@@ -46,13 +49,17 @@ const slice = createSlice({
             state.results = results
             state.page = page
             state.total_page = total_pages
-            if (page !== 1){
-                state.prev = page - 1
-                state.next = page + 1
-            }else {
+            if (page === 1){
                 state.prev = null
                 state.next = page + 1
+            }if (page === total_pages){
+                state.next = null
+                state.prev = page - 1
+            }else {
+                state.prev = page - 1
+                state.next = page + 1
             }
+
         })
     }
 });

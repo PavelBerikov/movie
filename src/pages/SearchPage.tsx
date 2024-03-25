@@ -1,10 +1,12 @@
 import React from 'react';
-import {SearchResult} from "../components";
+import {SearchForm} from "../components";
+import {Outlet} from "react-router-dom";
 
 const SearchPage = () => {
     return (
         <div>
-            <SearchResult/>
+            <SearchForm/>
+            <Outlet/>
         </div>
     );
 };
