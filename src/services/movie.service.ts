@@ -7,8 +7,8 @@ class MovieService{
     getMovies(page:number = 1):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page}})
     }
-    search(query: string):IRes<ISearch>{
-        return axiosService.get(urls.searchKeyword, {params: {query}})
+    search(query: string, page: number):IRes<ISearch>{
+        return axiosService.get(urls.searchKeyword, {params: {query, page}})
     }
 }
 

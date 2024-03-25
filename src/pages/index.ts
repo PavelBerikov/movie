@@ -1,1 +1,1 @@
-export * from './MoviesPages'
+export * from './SearchPage'
