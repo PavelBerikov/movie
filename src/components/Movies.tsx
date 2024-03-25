@@ -10,10 +10,10 @@ const Movies: FC = () => {
     const [query, setQuery] = useSearchParams();
     useEffect(() => {
         setQuery(prev => ({...prev, page: '1'}))
-    }, [])
+    }, [setQuery])
     useEffect(() => {
         dispatch(discoverActions.getMovies(+query.get('page')))
-    }, [query])
+    }, [query, dispatch])
     return (
         <div>
             {/*<button onClick={() => dispatch(discoverActions.getMovies())}>Get</button>*/}

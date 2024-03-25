@@ -1,8 +1,8 @@
-import React from 'react';
-import {Movies} from "../components/Movies";
-import {MoviesPagination} from "../components/MoviesPagination";
+import React, {FC} from 'react';
+import {Movies} from "../components";
+import {MoviesPagination} from "../components";
 
-const MoviesPages = () => {
+const MoviesPages: FC = () => {
     return (
         <div>
             <Movies/>
