@@ -18,11 +18,12 @@ let initialState:IState = {
     page: null,
     prev: null
 };
-const getFilterMovies = createAsyncThunk<IMovieData, {page: number, with_genres: string}>(
+const getFilterMovies = createAsyncThunk<IMovieData, {page: string, with_genres: string}>(
     'genresSlice/getFilterMovies',
     async ({page, with_genres}, {rejectWithValue}) => {
         try {
-            await movieService.getFilterMovies(page, with_genres)
+            const {data} = await movieService.getFilterMovies(page, with_genres);
+            return data
         }catch (e) {
             const err = e as AxiosError
             return rejectWithValue(err.response.data)
@@ -61,7 +62,8 @@ const slice = createSlice({
 
 const {reducer: genresReducer, actions} = slice;
 const genresActions = {
-    ...actions
+    ...actions,
+    getFilterMovies
 }
 export {
     genresActions, genresReducer

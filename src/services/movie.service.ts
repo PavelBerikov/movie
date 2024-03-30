@@ -5,7 +5,7 @@ import {urls} from "../constants";
 
 
 class MovieService{
-    getFilterMovies(page:number = 1, with_genres:string):IRes<IMovieData>{
+    getFilterMovies(page:number|string = 1, with_genres:string):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page, with_genres}})
     }
 }
