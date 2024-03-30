@@ -2,6 +2,7 @@ import React from 'react';
 import {useAppDispatch, useAppSelector} from "../hooks";
 import {genresActions} from "../redux";
 import {useNavigate} from "react-router-dom";
+import css from './button.module.css'
 
 const GenresSelector = () => {
     const dispatch = useAppDispatch();
@@ -10,7 +11,7 @@ const GenresSelector = () => {
     console.log(genres)
     return (
         <div>
-            <div style={{cursor: 'pointer'}}
+            <div className={css.But} style={{cursor: 'pointer'}}
                  onClick={() => dispatch(genresActions.createQuery(28))}>Action</div>
             <div style={{cursor: 'pointer'}}
                  onClick={() => dispatch(genresActions.createQuery(12))}>Adventure</div>

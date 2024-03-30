@@ -6,10 +6,12 @@ import {MoviesByGenres} from "./components/MoviesByGenres";
 const App = () => {
     return (
         <div>
-            <FilterMoviesPage/>
-            <Routes>
 
-                <Route path={'/filter'} element={<MoviesByGenres/>}/>
+            <Routes>
+                <Route path={'/'} element={<FilterMoviesPage/>}>
+                    <Route path={'/filter'} element={<MoviesByGenres/>}/>
+                </Route>
+
             </Routes>
 
         </div>

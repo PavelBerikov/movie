@@ -3,6 +3,7 @@ import {useAppDispatch, useAppSelector} from "../hooks";
 import {genresActions} from "../redux";
 import {useSearchParams} from "react-router-dom";
 import {Movie} from "./Movie";
+import {Pagination} from "./Pagination";
 
 const MoviesByGenres = () => {
     const {genres, movies} = useAppSelector(state => state.genres);
@@ -16,13 +17,14 @@ const MoviesByGenres = () => {
         }
     }, [setQuery, query])
     useEffect(() => {
-        dispatch(genresActions.getFilterMovies({page: '1', with_genres}))
+        dispatch(genresActions.getFilterMovies({page: qp, with_genres}))
     }, [dispatch, query])
     return (
         <div>
             {
                 movies.map(movie => <Movie movie={movie} key={movie.id}/>)
             }
+            <Pagination/>
 
         </div>
     );
