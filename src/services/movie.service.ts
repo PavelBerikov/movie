@@ -1,6 +1,13 @@
+import {IRes} from "../types";
+import {IAccInfo} from "../interfaces/accInfo.interface";
+import {axiosService} from "./axios.service";
+import {urls} from "../constants";
 
 
 class MovieService{
+    getAcc():IRes<IAccInfo>{
+        return axiosService.get(urls.getAccInfo)
+    }
     /*getMovies(page:number = 1):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page}})
     }

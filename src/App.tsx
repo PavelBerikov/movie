@@ -1,9 +1,10 @@
 import React from 'react';
+import {AccInfo} from "./components/AccInfo";
 
 const App = () => {
     return (
         <div>
-            App
+            <AccInfo/>
         </div>
     );
 };

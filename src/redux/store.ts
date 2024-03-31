@@ -1,10 +1,11 @@
 
 import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
+import {accReducer} from "./slice";
 
 
 const rootReducer = combineReducers({
-
+    acc: accReducer
 });
 
 const setupStore = () => configureStore({
