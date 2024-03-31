@@ -4,9 +4,13 @@ const discover = 'discover'
 const movie = 'movie'
 const search = 'search'
 const keyword = 'keyword'
+const rating = 'rating'
+
 const urls = {
+
     discoverMovie: `${discover}/${movie}`,
-    searchKeyword: `${search}/${keyword}`
+    searchKeyword: `${search}/${keyword}`,
+    addRatingToMovie: `${movie}`
 }
 
 

@@ -1,9 +1,10 @@
 import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
-import {discoverReducer} from "./slices";
+import {discoverReducer, ratingReducer} from "./slices";
 
 const rootReducer = combineReducers({
-    discover: discoverReducer
+    discover: discoverReducer,
+    rating: ratingReducer
 });
 
 const setupStore = () => configureStore({
