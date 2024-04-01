@@ -1,0 +1,9 @@
+.container {
+    border-radius: 15px;
+    opacity: 0.2;
+    height: 400px;
+    width: 100%;
+    background-color: snow;
+    padding: 5px;
+
+}
