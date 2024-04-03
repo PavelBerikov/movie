@@ -6,7 +6,7 @@ import {Header} from "./components/header/Header";
 const App = () => {
     return (
         <div style={{display: "flex"}}>
-            <Header/>
+            {/*<Header/>*/}
             <Routes>
             <Route path={'/'} element={<MainLayout/>}/>
         </Routes>

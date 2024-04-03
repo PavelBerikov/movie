@@ -1,11 +1,11 @@
 import React from 'react';
+import {HomePage} from "../pages/HomePage";
 
-import css from './MainLayout.module.css'
 
 const MainLayout = () => {
     return (
-        <div className={css.container}>
-            MainLayout
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <HomePage/>
         </div>
     );
 };

@@ -1,0 +1,13 @@
+.Home {
+    border-radius: 15px;
+    opacity: 0.3;
+    height: 400px;
+    width: 100%;
+    background-color: black;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: yellow;
+
+}
