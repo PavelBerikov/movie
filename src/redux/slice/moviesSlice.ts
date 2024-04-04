@@ -7,21 +7,23 @@ interface IState {
     photoURL: string
     next: number;
     prev: number;
-    movies: IMovie[]
+    movies: IMovie[];
+    page: number
 }
 
 let initialState: IState = {
     photoURL: 'https://image.tmdb.org/t/p/w300',
     movies: [],
     next: null,
-    prev: null
+    prev: null,
+    page: null
 };
 
-const filterByCount = createAsyncThunk<IMoviesResponse>(
+const filterByCount = createAsyncThunk<IMoviesResponse, number>(
     'moviesSlice/filterByRating',
-    async (_,{rejectWithValue}) => {
+    async (page,{rejectWithValue}) => {
         try {
-            const {data} = await movieService.sortByVoteCount();
+            const {data} = await movieService.sortByVoteCount(page);
             return data
         }catch (e) {
             const err = e as  AxiosError
@@ -35,8 +37,16 @@ const slice = createSlice({
     reducers:{},
     extraReducers: builder => {
         builder.addCase(filterByCount.fulfilled, (state, action) => {
-            const {results} = action.payload;
+            const {results, page} = action.payload;
             state.movies = results
+            state.page = page
+            if (page !== 1){
+                state.prev = page - 1
+                state.next = page + 1
+            }else {
+                state.prev = null
+                state.next = page + 1
+            }
         })
     }
 });

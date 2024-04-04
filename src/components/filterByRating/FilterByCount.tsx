@@ -8,13 +8,13 @@ const FilterByCount: FC = () => {
     const {movies, photoURL} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
     const [query, setQuery] = useSearchParams();
-   /* useEffect(() => {
+    useEffect(() => {
         if (query.get('page') === null) {
             setQuery({ page: '1' });
         }
-    }, [setQuery, query])*/
+    }, [setQuery, query])
     useEffect(() => {
-        dispatch(moviesActions.filterByCount())
+        dispatch(moviesActions.filterByCount(+query.get('page')))
     }, [query, dispatch])
     return (
         <div>

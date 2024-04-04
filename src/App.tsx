@@ -7,6 +7,7 @@ import {HomePage} from "./pages/HomePage";
 const App = () => {
     return (
         <div>
+            <Header/>
             <Routes>
                 <Route path={'/'} element={<MainLayout/>}/>
                 <Route index element={<Navigate to={'home'}/>}/>
