@@ -38,7 +38,6 @@ const slice = createSlice({
     extraReducers: builder => {
         builder.addCase(getUser.fulfilled, (state, action) => {
             const {avatar, username, name, include_adult, id} = action.payload;
-            const {tmdb, gravatar} = avatar;
             state.id = id
             state.avatar = avatar
             state.include_adult = include_adult

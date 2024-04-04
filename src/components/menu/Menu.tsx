@@ -1,11 +1,11 @@
 import React from 'react';
 
+
 const Menu = () => {
     return (
-        <div>
-{/*
-            <img src={menu} alt={'menu'}/>
-*/}
+        <div style={{margin: '10px', fontSize: '40px', color: 'salmon'}}>
+            {/*<img src={menu} alt={'menu'} style={{width: '20px', height: '20px'}}/>*/}
+            ≡
         </div>
     );
 };

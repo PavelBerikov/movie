@@ -8,7 +8,7 @@ const Header = () => {
         <div className={css.Header}>
             <User/>
             <SearchForm/>
-            {/*<Menu/>*/}
+            <Menu/>
         </div>
     );
 };
