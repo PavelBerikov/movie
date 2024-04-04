@@ -6,7 +6,7 @@ import {urls} from "../constants";
 
 class MovieService{
     sortByVoteCount(page:number = 1, sort_by:string = 'vote_count.desc'): IRes<IMoviesResponse>{
-        return axiosService.get(urls.discoverMovie, {params: {page, sort_by}})
+        return axiosService.get(urls.discoverMovie, {params: {sort_by, page}})
     }
     /*getMovies(page:number = 1):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page}})

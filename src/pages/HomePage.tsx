@@ -1,12 +1,14 @@
 import React from 'react';
 import css from './page.module.css'
 import {Carousel} from "../components/carousel/Carousel";
-import {FilterByRating} from "../components/filterByRating/FilterByCount";
+import {FilterByCount} from "../components/filterByRating/FilterByCount";
+import {FilterByCountPagination} from "../components/filterByRating/FilterByCountPagination";
 const HomePage = () => {
     return (
         <div className={css.Home}>
             <Carousel/>
-            <FilterByRating/>
+            <FilterByCount/>
+            <FilterByCountPagination/>
 
 
         </div>
