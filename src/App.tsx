@@ -1,15 +1,17 @@
 import React from 'react';
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {MainLayout} from "./layouts";
 import {Header} from "./components/header/Header";
+import {HomePage} from "./pages/HomePage";
 
 const App = () => {
     return (
-        <div style={{display: "flex"}}>
-            {/*<Header/>*/}
+        <div>
             <Routes>
-            <Route path={'/'} element={<MainLayout/>}/>
-        </Routes>
+                <Route path={'/'} element={<MainLayout/>}/>
+                <Route index element={<Navigate to={'home'}/>}/>
+                <Route path={'home'} element={<HomePage/>}/>
+            </Routes>
         </div>
     );
 };
