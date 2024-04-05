@@ -1,6 +1,9 @@
 const baseURL = 'https://api.themoviedb.org/3'
 
 const discover = 'discover'
+
+
+
 const movie = 'movie'
 const search = 'search'
 const keyword = 'keyword'
@@ -12,6 +15,11 @@ const urls = {
 }
 
 
+const baseYTURL = 'https://www.googleapis.com/youtube/v3'
+const urlsYT = {
+    search: '/search'
+}
+
 export {
-    baseURL, urls
+    baseURL, urls, baseYTURL, urlsYT
 }
