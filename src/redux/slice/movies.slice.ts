@@ -8,7 +8,8 @@ interface IState {
     next: number;
     prev: number;
     movies: IMovie[];
-    page: number
+    page: number;
+    movieTitle: string
 }
 
 let initialState: IState = {
@@ -16,7 +17,8 @@ let initialState: IState = {
     movies: [],
     next: null,
     prev: null,
-    page: null
+    page: null,
+    movieTitle: null
 };
 
 const filterByCount = createAsyncThunk<IMoviesResponse, number>(
@@ -34,7 +36,11 @@ const filterByCount = createAsyncThunk<IMoviesResponse, number>(
 const slice = createSlice({
     name:'moviesSlice',
     initialState,
-    reducers:{},
+    reducers:{
+        setTitle:(state, action) => {
+            state.movieTitle = action.payload
+        }
+    },
     extraReducers: builder => {
         builder.addCase(filterByCount.fulfilled, (state, action) => {
             const {results, page} = action.payload;

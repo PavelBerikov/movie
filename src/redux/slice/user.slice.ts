@@ -43,7 +43,6 @@ const slice = createSlice({
             state.include_adult = include_adult
             state.name = name
             state.username = username
-            console.log(action.payload)
         })
             .addCase(getUser.rejected, (state, action) => {
                 console.log(action.payload)
