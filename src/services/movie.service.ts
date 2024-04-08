@@ -1,5 +1,5 @@
 import {IRes} from "../types";
-import {IMoviesResponse} from "../interfaces";
+import {IMovieInfo, IMoviesResponse} from "../interfaces";
 import {axiosService} from "./axios.service";
 import {urls} from "../constants";
 import {IUser} from "../interfaces";
@@ -11,6 +11,9 @@ class MovieService{
     }
     getAcc():IRes<IUser>{
         return axiosService.get(urls.getAccInfo)
+    }
+    getMovieInfo(id: number): IRes<IMovieInfo>{
+        return axiosService.get(`${urls.getMovieInfo}/${id}`)
     }
     /*getMovies(page:number = 1):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page}})

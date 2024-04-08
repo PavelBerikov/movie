@@ -11,10 +11,11 @@ interface IProps{
 const Movie: FC<IProps> = ({movie, photoURL}) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const {title, original_language, overview, poster_path, release_date} = movie;
+    const {title, original_language, overview, poster_path, release_date, id} = movie;
     const shortOverview = overview.length > 100 ? overview.substring(0, 100) + '...' : overview
     return (
-        <div onClick={() => {navigate('/movie'); dispatch(moviesActions.setTitle(title))}} className={css.Movie}>
+        <div onClick={() => {navigate('/movie'); dispatch(moviesActions.setTitle(title));
+        dispatch(moviesActions.setId(id))}} className={css.Movie}>
 
             <div style={{margin: '5px'}}>
                 <img src={`${photoURL}/${poster_path}`} alt={title} className={css.Poster}/>

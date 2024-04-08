@@ -2,14 +2,15 @@
 import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
 
-import {moviesReducer, youtubeReducer} from "./slice";
+import {fullMovieInfoReducer, moviesReducer, youtubeReducer} from "./slice";
 import {userReducer} from "./slice";
 
 
 const rootReducer = combineReducers({
     movies: moviesReducer,
     user: userReducer,
-    youtube: youtubeReducer
+    youtube: youtubeReducer,
+    fullMovieInfo: fullMovieInfoReducer
 });
 
 const setupStore = () => configureStore({

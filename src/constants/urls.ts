@@ -11,7 +11,8 @@ const account = 'account/nooob199505'
 const urls = {
     discoverMovie: `${discover}/${movie}`,
     searchKeyword: `${search}/${keyword}`,
-    getAccInfo: account
+    getAccInfo: account,
+    getMovieInfo: '/movie'
 }
 
 

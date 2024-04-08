@@ -11,14 +11,14 @@ const TrailerVideo = () => {
     useEffect(() => {
         dispatch(youtubeActions.getVideoId(query))
     }, [dispatch, query])
-    if (response){
-        console.log(response.items[0].id.videoId)
-    }
     const opts = {
-        height: '480',
-        width: '720',
+        height: '550',
+        width: '1100',
         playerVars: {
             autoplay: 1,
+            controls: 0,
+            modestbranding: 1,
+            fs: 0
         }
     }
     return (

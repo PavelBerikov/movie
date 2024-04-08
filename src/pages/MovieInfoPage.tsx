@@ -1,11 +1,12 @@
 import React from 'react';
-import {TrailerVideo} from "../components/TrailerVideo";
+import {FullMovieInfo} from "../components";
 
 
 const MovieInfoPage = () => {
     return (
         <div>
-            <TrailerVideo/>
+            {/*<TrailerVideo/>*/}
+            <FullMovieInfo/>
         </div>
     );
 };
