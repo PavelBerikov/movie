@@ -5,7 +5,7 @@ import YouTube from "react-youtube";
 
 const TrailerVideo = () => {
     const dispatch = useAppDispatch();
-    const {movieTitle} = useAppSelector(state => state.movies);
+    const {movieTitle} = useAppSelector(state => state.fullMovieInfo);
     const {response} = useAppSelector(state => state.youtube);
     const query = `${movieTitle} official trailer`
     useEffect(() => {

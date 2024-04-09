@@ -15,6 +15,14 @@ class MovieService{
     getMovieInfo(id: number): IRes<IMovieInfo>{
         return axiosService.get(`${urls.getMovieInfo}/${id}`)
     }
+    setLocalStorage(id: string, title: string):void{
+        localStorage.setItem('id', id)
+        localStorage.setItem('title', title)
+    }
+    getLocalStorage():void{
+        localStorage.getItem('id')
+        localStorage.getItem('title')
+    }
     /*getMovies(page:number = 1):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page}})
     }

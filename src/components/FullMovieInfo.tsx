@@ -2,24 +2,31 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../hooks";
 import {fullMovieInfoActions} from "../redux";
 import {useSearchParams} from "react-router-dom";
+import {movieService} from "../services";
 
 const FullMovieInfo = () => {
-    const {movies, movieId} = useAppSelector(state => state.movies);
-    const filter = movies.filter(value => value.id === movieId)
-    const {movieInfo} = useAppSelector(state => state.fullMovieInfo);
-    const dispatch = useAppDispatch();
+    const {movieInfo, movieId, movieTitle} = useAppSelector(state => state.fullMovieInfo);
     const [query, setQuery] = useSearchParams();
+    const dispatch = useAppDispatch();
+    const localId = localStorage.getItem('id')
+    const localTitle = localStorage.getItem('title')
     useEffect(() => {
-        setQuery({id: filter[0]?.id + ''})
-    }, [setQuery, query])
+        setQuery({id: localId})
+    }, [setQuery])
+    /*useEffect(() => {
+        setQuery({title: movieTitle, id: `${movieId}`})
+    }, [movieId, movieTitle])
+
     useEffect(() => {
         dispatch(fullMovieInfoActions.getMovieInfo(parseInt(query.get('id'))))
-    }, [dispatch])
+        if (movieInfo){
+            setQuery({title: movieInfo.title, id: `${movieInfo.id}`})
+        }
+    }, [dispatch, movieInfo])*/
+
 
     return (
         <div>
-            {/*<div>{title}</div>
-            <div>{overview}</div>*/}
         </div>
     );
 };
