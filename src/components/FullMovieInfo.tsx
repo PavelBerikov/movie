@@ -5,14 +5,14 @@ import {useSearchParams} from "react-router-dom";
 import {movieService} from "../services";
 
 const FullMovieInfo = () => {
-    const {movieInfo, movieId, movieTitle} = useAppSelector(state => state.fullMovieInfo);
+    const {movieInfo} = useAppSelector(state => state.fullMovieInfo);
     const [query, setQuery] = useSearchParams();
     const dispatch = useAppDispatch();
-    const localId = localStorage.getItem('id')
-    const localTitle = localStorage.getItem('title')
+    const index = localStorage.getItem('id')
     useEffect(() => {
-        setQuery({id: localId})
-    }, [setQuery])
+        dispatch(fullMovieInfoActions.getMovieInfo(index))
+    }, [dispatch])
+    console.log(movieInfo)
     /*useEffect(() => {
         setQuery({title: movieTitle, id: `${movieId}`})
     }, [movieId, movieTitle])

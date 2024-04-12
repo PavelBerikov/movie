@@ -12,7 +12,7 @@ class MovieService{
     getAcc():IRes<IUser>{
         return axiosService.get(urls.getAccInfo)
     }
-    getMovieInfo(id: number): IRes<IMovieInfo>{
+    getMovieInfo(id: string): IRes<IMovieInfo>{
         return axiosService.get(`${urls.getMovieInfo}/${id}`)
     }
     setLocalStorage(id: string, title: string):void{
@@ -22,6 +22,10 @@ class MovieService{
     getLocalStorage():void{
         localStorage.getItem('id')
         localStorage.getItem('title')
+    }
+    deleteStorage():void{
+        localStorage.removeItem('id')
+        localStorage.removeItem('title')
     }
     /*getMovies(page:number = 1):IRes<IMovieData>{
         return  axiosService.get(urls.discoverMovie, {params: {page}})

@@ -5,16 +5,12 @@ import {AxiosError} from "axios";
 
 interface IState {
     movieInfo: IMovieInfo;
-    movieTitle: string;
-    movieId: number
 }
 let initialState: IState = {
     movieInfo: null,
-    movieTitle: null,
-    movieId: null
 };
 
-const getMovieInfo = createAsyncThunk<IMovieInfo, number>(
+const getMovieInfo = createAsyncThunk<IMovieInfo, string>(
     'fullMovieInfoSlice/getMovieInfo',
     async (id, {rejectWithValue}) => {
         try {
@@ -29,18 +25,10 @@ const getMovieInfo = createAsyncThunk<IMovieInfo, number>(
 const slice = createSlice({
     name: 'fullMovieInfoSlice',
     initialState,
-    reducers:{
-        setTitle:(state, action) => {
-            state.movieTitle = action.payload
-        },
-        setId: (state, action) => {
-            state.movieId = action.payload
-        }
-    },
+    reducers:{},
     extraReducers: builder => {
         builder.addCase(getMovieInfo.fulfilled, (state, action) => {
             state.movieInfo = action.payload
-            console.log(action.payload)
         })
     }
 });

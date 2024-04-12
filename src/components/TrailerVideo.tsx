@@ -5,12 +5,10 @@ import YouTube from "react-youtube";
 
 const TrailerVideo = () => {
     const dispatch = useAppDispatch();
-    const {movieTitle} = useAppSelector(state => state.fullMovieInfo);
     const {response} = useAppSelector(state => state.youtube);
-    const query = `${movieTitle} official trailer`
-    useEffect(() => {
+   /* useEffect(() => {
         dispatch(youtubeActions.getVideoId(query))
-    }, [dispatch, query])
+    }, [dispatch, query])*/
     const opts = {
         height: '550',
         width: '1100',

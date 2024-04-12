@@ -12,10 +12,10 @@ const FilterByCountPagination: FC = () => {
         setQuery(prev1 => ({...prev1, page: +prev1.get('page') + 1}))
     };
 
-    const first = parseInt(query.get('page'))
+   /* const first = parseInt(query.get('page'))
     const second = first + 1
-    const third = first + 2
-    const changeFirst = () => {
+    const third = first + 2*/
+   /* const changeFirst = () => {
         setQuery(prev1 => ({...prev1, page: first}))
     };
     const changeSecond = () => {
@@ -23,17 +23,17 @@ const FilterByCountPagination: FC = () => {
     };
     const changeThird = () => {
         setQuery(prev1 => ({...prev1, page: third}))
-    };
+    };*/
     return (
         <div style={{display: "flex", alignItems: 'center', justifyContent: 'center'}}>
             <button disabled={!prev} onClick={prevPage}>prev</button>
-            {
+            {/*{
                 first > 5&&
                 <span style={{cursor: 'pointer'}} onClick={() => setQuery({page: '1'})}>1...</span>
             }
             <span style={{cursor: 'pointer'}} onClick={changeFirst}>{first}</span>,
             <span style={{cursor: 'pointer'}} onClick={changeSecond}>{second}</span>,
-            <span style={{cursor: 'pointer'}} onClick={changeThird}>{third}</span>
+            <span style={{cursor: 'pointer'}} onClick={changeThird}>{third}</span>*/}
             <button disabled={!next} onClick={nextPage}>next</button>
 
         </div>

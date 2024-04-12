@@ -23,9 +23,9 @@ const Movie: FC<IProps> = ({movie, photoURL}) => {
 
             <div>
                 <div>{title}</div>
-                <div>Language - {original_language}</div>
+               {/* <div>Language - {original_language}</div>
                 <div>Release {release_date.substring(0,4)}</div>
-                <div>{shortOverview}</div>
+                <div>{shortOverview}</div>*/}
             </div>
 
         </div>
