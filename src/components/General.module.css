@@ -1,14 +1,19 @@
 .Movie{
-    display: flex;
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-bottom: 20px;
-    border: 1px solid seagreen;
+    border: 2px solid silver;
     border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+
 }
 .Poster{
-    width: 70px;
-    height: 100px;
+    width: 90px;
+    height: 120px;
     border-radius: 5px;
 }
 .Card{

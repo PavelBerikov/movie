@@ -18,7 +18,7 @@ const FilterByCount: FC = () => {
         }
     }, [setQuery, query, dispatch])
     return (
-        <div>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px'}}>
             {
                 movies.map(movie => <Movie movie={movie} photoURL={photoURL} key={movie.id}/>)
             }

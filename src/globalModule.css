@@ -1,14 +1,6 @@
 body {
-    /*margin: 0;
-    padding: 0;
-    background-image: url('./assets/background.webp');
-    background-size: cover;
-    background-position: top center;*/
     background-color: #0b0a26;
-    /*padding-left: 100px;
-    padding-right: 100px;*/
     padding-top: 50px;
-    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;

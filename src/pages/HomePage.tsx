@@ -6,7 +6,7 @@ import {FilterByCountPagination} from "../components/filterByRating/FilterByCoun
 const HomePage = () => {
     return (
         <div className={css.Home}>
-            <Carousel/>
+            {/*<Carousel/>*/}
             <FilterByCount/>
             <FilterByCountPagination/>
 

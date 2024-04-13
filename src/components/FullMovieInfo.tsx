@@ -3,31 +3,33 @@ import {useAppDispatch, useAppSelector} from "../hooks";
 import {fullMovieInfoActions} from "../redux";
 import {useSearchParams} from "react-router-dom";
 import {movieService} from "../services";
+import css from "./General.module.css";
 
 const FullMovieInfo = () => {
     const {movieInfo} = useAppSelector(state => state.fullMovieInfo);
+    const {photoURL} = useAppSelector(state => state.movies);
     const [query, setQuery] = useSearchParams();
     const dispatch = useAppDispatch();
     const index = localStorage.getItem('id')
+    const {poster_path, title} = movieInfo;
     useEffect(() => {
         dispatch(fullMovieInfoActions.getMovieInfo(index))
     }, [dispatch])
-    console.log(movieInfo)
-    /*useEffect(() => {
-        setQuery({title: movieTitle, id: `${movieId}`})
-    }, [movieId, movieTitle])
-
-    useEffect(() => {
-        dispatch(fullMovieInfoActions.getMovieInfo(parseInt(query.get('id'))))
-        if (movieInfo){
-            setQuery({title: movieInfo.title, id: `${movieInfo.id}`})
-        }
-    }, [dispatch, movieInfo])*/
-
-
     return (
-        <div>
-        </div>
+        <>
+            {
+                movieInfo &&
+                <div style={{display: "flex", justifyContent: "start"}}>
+                    <div style={{margin: '5px'}}>
+                        <img src={`${photoURL}/${poster_path}`} alt={title} style={{width: "280px", height: '400px'}}/>
+                    </div>
+                    <div>
+                        d
+                    </div>
+
+                </div>
+            }
+        </>
     );
 };
 

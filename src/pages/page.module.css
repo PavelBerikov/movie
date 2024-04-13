@@ -3,10 +3,9 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
     color: yellow;
+    display: flex;
     flex-direction: column;
+
 
 }
