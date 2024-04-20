@@ -7,7 +7,7 @@ interface IState {
     movieInfo: IMovieInfo;
 }
 let initialState: IState = {
-    movieInfo: null,
+    movieInfo: null
 };
 
 const getMovieInfo = createAsyncThunk<IMovieInfo, string>(

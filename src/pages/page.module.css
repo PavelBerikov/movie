@@ -6,6 +6,8 @@
     color: yellow;
     display: flex;
     flex-direction: column;
-
-
+}
+.InfoPage{
+    display: flex;
+    width: 700px;
 }
