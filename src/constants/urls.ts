@@ -8,13 +8,12 @@ const movie = 'movie'
 const search = 'search'
 const keyword = 'keyword'
 const account = 'account/nooob199505'
-const searchKeyword = '/search/keyword'
 const urls = {
     discoverMovie: `${discover}/${movie}`,
     searchKeyword: `${search}/${keyword}`,
     getAccInfo: account,
     getMovieInfo: '/movie',
-    searchMovie: searchKeyword
+    searchMovie: `${search}/${movie}`
 }
 
 

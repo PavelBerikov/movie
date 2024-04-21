@@ -1,10 +1,12 @@
 import React from 'react';
+import {useAppDispatch} from "../../hooks";
+import {menuActions} from "../../redux";
 
 
 const Menu = () => {
+    const dispatch = useAppDispatch();
     return (
-        <div style={{margin: '10px', fontSize: '40px', color: 'salmon'}}>
-            {/*<img src={menu} alt={'menu'} style={{width: '20px', height: '20px'}}/>*/}
+        <div onClick={() => dispatch(menuActions.changeTrigger())} style={{margin: '10px', fontSize: '40px', color: 'salmon', cursor: 'pointer'}}>
             ≡
         </div>
     );

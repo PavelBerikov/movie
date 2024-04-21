@@ -32,3 +32,10 @@
     border-radius: 50%;
     margin: 10px;
 }
+.Menu{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    z-index: 1000;
+    background-color: silver;
+}

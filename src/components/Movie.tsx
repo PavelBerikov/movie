@@ -2,8 +2,6 @@ import React, {FC} from 'react';
 import {IMovie} from "../interfaces";
 import css from './General.module.css'
 import {useNavigate} from "react-router-dom";
-import {useAppDispatch} from "../hooks";
-import {fullMovieInfoActions, moviesActions} from "../redux";
 import {movieService} from "../services";
 interface IProps{
     movie: IMovie

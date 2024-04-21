@@ -1,12 +1,13 @@
 import {IRes} from "../types";
-import {IMovieInfo, IMoviesResponse, ISearch} from "../interfaces";
+import {IMovieInfo, IMoviesResponse} from "../interfaces";
 import {axiosService} from "./axios.service";
 import {urls} from "../constants";
 import {IUser} from "../interfaces";
 
 
 class MovieService{
-    searchMovie(page:number = 1, query: string):IRes<ISearch>{
+
+    searchMovie(page:string = '1', query: string):IRes<IMoviesResponse>{
         return axiosService.get(urls.searchMovie, {params: {query, page}})
     }
     sortByVoteCount(page:number = 1, sort_by:string = 'vote_count.desc'): IRes<IMoviesResponse>{
