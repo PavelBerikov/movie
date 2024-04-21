@@ -3,10 +3,13 @@ import {IMovieInfo, IMoviesResponse} from "../interfaces";
 import {axiosService} from "./axios.service";
 import {urls} from "../constants";
 import {IUser} from "../interfaces";
+import {IGenresData} from "../interfaces/genres.interface";
 
 
 class MovieService{
-
+    getGenres(): IRes<IGenresData>{
+        return axiosService.get(urls.genreMovieList)
+    }
     searchMovie(page:string = '1', query: string):IRes<IMoviesResponse>{
         return axiosService.get(urls.searchMovie, {params: {query, page}})
     }

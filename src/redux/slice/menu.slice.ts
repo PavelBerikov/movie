@@ -15,6 +15,7 @@ const slice = createSlice({
         },
         changeTrigger: (state) => {
             state.trigger = !state.trigger
+            console.log(state.trigger)
         }
     }
 });

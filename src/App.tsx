@@ -7,14 +7,17 @@ import {MovieInfoPage} from "./pages/MovieInfoPage";
 import {SearchPage} from "./pages/SearchPage";
 import {useAppSelector} from "./hooks";
 import {FullMenu} from "./components/menu/FullMenu";
-
+import css from '../src/components/General.module.css'
+import {GenresPage} from "./pages/GenresPage";
 const App = () => {
     const {trigger} = useAppSelector(state => state.menu);
     return (
         <div>
             {
                 trigger &&
-                <FullMenu/>
+
+                <div className={css.Menu}><FullMenu/></div>
+
             }
             <Header/>
             <Routes>
@@ -23,6 +26,7 @@ const App = () => {
                 <Route path={'home'} element={<HomePage/>}/>
                 <Route path={'movie'} element={<MovieInfoPage/>}/>
                 <Route path={'search'} element={<SearchPage/>}/>
+                <Route path={'genres'} element={<GenresPage/>}/>
             </Routes>
         </div>
     );

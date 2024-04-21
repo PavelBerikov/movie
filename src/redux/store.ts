@@ -2,7 +2,7 @@
 import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
 
-import {fullMovieInfoReducer, menuReducer, moviesReducer, searchReducer, youtubeReducer} from "./slice";
+import {fullMovieInfoReducer, genreReducer, menuReducer, moviesReducer, searchReducer, youtubeReducer} from "./slice";
 import {userReducer} from "./slice";
 
 
@@ -12,7 +12,8 @@ const rootReducer = combineReducers({
     youtube: youtubeReducer,
     fullMovieInfo: fullMovieInfoReducer,
     search: searchReducer,
-    menu: menuReducer
+    menu: menuReducer,
+    genre: genreReducer
 });
 
 const setupStore = () => configureStore({
