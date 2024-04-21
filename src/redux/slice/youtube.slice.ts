@@ -26,10 +26,15 @@ const getVideoId = createAsyncThunk<IYouTubeResponse, string>(
 const slice = createSlice({
     name: 'youtubeSlice',
     initialState,
-    reducers:{},
+    reducers:{
+        nullResponse: (state) => {
+            state.response = null
+        }
+    },
     extraReducers: builder => {
         builder.addCase(getVideoId.fulfilled, (state, action) => {
             state.response = action.payload
+            console.log(state.response)
         })
     }
 });

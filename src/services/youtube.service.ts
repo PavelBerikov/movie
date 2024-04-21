@@ -5,7 +5,7 @@ import {urlsYT} from "../constants";
 
 class YoutubeService{
     search(title: string): IRes<IYouTubeResponse>{
-        return axiosYTService.get(urlsYT.search, {params: {part: 'snippet', q: title, key:'AIzaSyAsMGLJTdiIxG1MIy-C8JLMR7DodWFiwjo'}})
+        return axiosYTService.get(urlsYT.search, {params: {part: 'snippet', q: title, key:'AIzaSyA0x45sp04RoyzgpyJs1HMGI4Occ8g_S_M'}})
     }
 }
 

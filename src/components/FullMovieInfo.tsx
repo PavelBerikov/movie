@@ -3,10 +3,11 @@ import {useAppDispatch, useAppSelector} from "../hooks";
 import {fullMovieInfoActions} from "../redux";
 
 import css from './General.module.css'
+import {TrailerVideo} from "./TrailerVideo";
 
 
 const FullMovieInfo = () => {
-    const {movieInfo} = useAppSelector(state => state.fullMovieInfo);
+    const {movieInfo, trigger} = useAppSelector(state => state.fullMovieInfo);
     const {photoURL} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
     const index = localStorage.getItem('id')
@@ -19,11 +20,12 @@ const FullMovieInfo = () => {
         <>
             {
                 movieInfo &&
-                <div style={{display: "flex", width: "100%", justifyContent: 'space-around'}}>
-                    <div style={{margin: '5px'}}>
+                <div style={{display: "flex", width: "100%", margin: '15px'}}>
+                    <div style={{margin: '5px', display: "flex", flexDirection: 'column'}}>
                         <img src={`${photoURL}/${poster_path}`} alt={title} style={{width: "188px", height: '282px'}}/>
+                        <button onClick={() => dispatch(fullMovieInfoActions.changeTrigger())}>watch</button>
                     </div>
-                    <div>
+                    <div style={{marginLeft: '30px', color: 'snow'}}>
                         <div className={css.Info}>
                             <div>
                                 <strong>Rating:</strong>
@@ -92,6 +94,10 @@ const FullMovieInfo = () => {
 
 
                 </div>
+            }
+            {
+                trigger &&
+                <TrailerVideo/>
             }
         </>
     );

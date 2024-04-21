@@ -5,9 +5,11 @@ import {AxiosError} from "axios";
 
 interface IState {
     movieInfo: IMovieInfo;
+    trigger: boolean
 }
 let initialState: IState = {
-    movieInfo: null
+    movieInfo: null,
+    trigger: false
 };
 
 const getMovieInfo = createAsyncThunk<IMovieInfo, string>(
@@ -25,7 +27,14 @@ const getMovieInfo = createAsyncThunk<IMovieInfo, string>(
 const slice = createSlice({
     name: 'fullMovieInfoSlice',
     initialState,
-    reducers:{},
+    reducers:{
+        changeTrigger: (state) => {
+            state.trigger = !state.trigger
+        },
+        falseTrigger: (state) => {
+            state.trigger = false
+        }
+    },
     extraReducers: builder => {
         builder.addCase(getMovieInfo.fulfilled, (state, action) => {
             state.movieInfo = action.payload
