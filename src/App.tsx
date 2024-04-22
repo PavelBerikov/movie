@@ -12,7 +12,7 @@ import {GenresPage} from "./pages/GenresPage";
 const App = () => {
     const {trigger} = useAppSelector(state => state.menu);
     return (
-        <div>
+        <div style={{display: "flex"}}>
             {
                 trigger &&
 

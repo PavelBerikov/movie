@@ -34,7 +34,6 @@ const slice = createSlice({
     extraReducers: builder => {
         builder.addCase(getVideoId.fulfilled, (state, action) => {
             state.response = action.payload
-            console.log(state.response)
         })
     }
 });

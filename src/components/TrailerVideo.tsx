@@ -20,7 +20,7 @@ const TrailerVideo = () => {
     const title = localStorage.getItem('title')
     useEffect(() => {
         dispatch(youtubeActions.getVideoId(title))
-    })
+    }, [title, dispatch])
     return (
         <div style={{
             position: 'fixed',

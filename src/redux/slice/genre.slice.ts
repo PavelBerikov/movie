@@ -7,7 +7,7 @@ interface IState {
     genres: IGenre[]
 }
 let initialState: IState = {
-    genres: null
+    genres: []
 };
 const getGenres = createAsyncThunk<IGenresData>(
     'genreSlice/getGenres',
@@ -27,13 +27,14 @@ const slice = createSlice({
     reducers:{},
     extraReducers: builder => {
         builder.addCase(getGenres.fulfilled, (state, action) => {
-            console.log(action.payload)
+            state.genres = action.payload.genres
         })
     }
 });
 const {reducer: genreReducer, actions} = slice;
 const genreActions = {
-    ...actions
+    ...actions,
+    getGenres
 }
 
 export {
