@@ -9,6 +9,7 @@ import {useAppSelector} from "./hooks";
 import {FullMenu} from "./components/menu/FullMenu";
 import css from '../src/components/General.module.css'
 import {GenresPage} from "./pages/GenresPage";
+import {Test} from "./components/test";
 const App = () => {
     const {trigger} = useAppSelector(state => state.menu);
     return (
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path={'movie'} element={<MovieInfoPage/>}/>
                 <Route path={'search'} element={<SearchPage/>}/>
                 <Route path={'genres'} element={<GenresPage/>}/>
+
             </Routes>
         </div>
     );

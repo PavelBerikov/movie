@@ -9,15 +9,12 @@ const Genres = () => {
     useEffect(() => {
         dispatch(genreActions.getGenres())
     }, [dispatch])
-    let trigger = false
-    console.log(trigger)
-    const changer = () => {
-        trigger = !trigger
-    }
+
+
     return (
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', gap: '10px'}}>
             {
-                genres.map(genre => <div onClick={() => changer()} className={trigger? css.Red:css.Yellow} key={genre.id}>{genre.name}</div>)
+                genres.map(genre => <div className={css.Yellow} key={genre.id}>{genre.name}</div>)
             }
         </div>
     );
