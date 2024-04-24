@@ -1,7 +1,8 @@
 import React, {FC} from 'react';
+import {useNavigate} from "react-router-dom";
+
 import {IMovie} from "../interfaces";
 import css from './General.module.css'
-import {useNavigate} from "react-router-dom";
 import {movieService} from "../services";
 interface IProps{
     movie: IMovie
@@ -16,6 +17,18 @@ const Movie: FC<IProps> = ({movie, photoURL}) => {
                 <img src={`${photoURL}/${poster_path}`} alt={title} className={css.Poster}/>
             </div>
             <div>{title}</div>
+            <div className={css.Rating}>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+                <span className={css.Star}></span>
+            </div>
         </div>
     );
 };

@@ -67,3 +67,22 @@
     color: red;
     margin: 5px;
 }
+.Rating {
+    display: flex;
+}
+
+.Star {
+    width: 10px;
+    height: 10px;
+    background: gray;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    margin-right: 2px;
+}
+
+.StarFilled {
+    background: gold;
+}
+
+.StarHalf {
+    background: linear-gradient(to right, gold 50%, gray 50%);
+}
