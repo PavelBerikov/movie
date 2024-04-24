@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {useAppSelector} from "../../hooks";
 import {useSearchParams} from "react-router-dom";
 
-const FilterByCountPagination: FC = () => {
-    const {prev, next} = useAppSelector(state => state.movies);
+const FilterByGenresPagination = () => {
+    const {prev, next} = useAppSelector(state => state.genre);
     const [,setQuery] = useSearchParams();
     const prevPage = () => {
         setQuery(prev1 => ({...prev1, page: +prev1.get('page') - 1}))
@@ -12,12 +12,11 @@ const FilterByCountPagination: FC = () => {
         setQuery(prev1 => ({...prev1, page: +prev1.get('page') + 1}))
     };
     return (
-        <div style={{display: "flex", alignItems: 'center', justifyContent: 'center'}}>
+        <div>
             <button disabled={!prev} onClick={prevPage}>prev</button>
             <button disabled={!next} onClick={nextPage}>next</button>
-
         </div>
     );
 };
 
-export {FilterByCountPagination};
+export {FilterByGenresPagination};

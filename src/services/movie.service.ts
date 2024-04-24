@@ -7,6 +7,9 @@ import {IGenresData} from "../interfaces/genres.interface";
 
 
 class MovieService{
+    searchByGenre(page: string = '1',  with_genres: string): IRes<IMoviesResponse>{
+        return axiosService.get(urls.discoverMovie, {params: {with_genres, page}})
+    }
     getGenres(): IRes<IGenresData>{
         return axiosService.get(urls.genreMovieList)
     }

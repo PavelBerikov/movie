@@ -9,12 +9,13 @@ const Genres = () => {
     useEffect(() => {
         dispatch(genreActions.getGenres())
     }, [dispatch])
-
-
     return (
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', gap: '10px'}}>
             {
-                genres.map(genre => <div className={css.Yellow} key={genre.id}>{genre.name}</div>)
+                genres.map(genre =>
+                    <div onClick={() => dispatch(genreActions.createQuery(genre.id))}
+                         id={genre.id + ''} className={css.Yellow} key={genre.id}>{genre.name}</div>
+                )
             }
         </div>
     );
