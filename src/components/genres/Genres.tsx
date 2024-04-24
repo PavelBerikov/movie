@@ -4,7 +4,7 @@ import {genreActions} from "../../redux";
 
 import css from '../General.module.css'
 const Genres = () => {
-    const {genres} = useAppSelector(state => state.genre);
+    const {genres, genresId} = useAppSelector(state => state.genre);
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(genreActions.getGenres())
@@ -14,7 +14,8 @@ const Genres = () => {
             {
                 genres.map(genre =>
                     <div onClick={() => dispatch(genreActions.createQuery(genre.id))}
-                         id={genre.id + ''} className={css.Yellow} key={genre.id}>{genre.name}</div>
+                         className={genresId.includes(genre.id)? css.Red:css.Yellow}
+                         key={genre.id}>{genre.name}</div>
                 )
             }
         </div>

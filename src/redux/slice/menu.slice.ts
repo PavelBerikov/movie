@@ -1,20 +1,20 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 interface IState{
-    trigger: boolean
+    menuTrigger: boolean
 }
 let initialState: IState = {
-    trigger: false
+    menuTrigger: false
 };
 const slice = createSlice({
     name: 'menuSlice',
     initialState,
     reducers:{
         resetTrigger: (state) => {
-            state.trigger = false
+            state.menuTrigger = false
         },
         changeTrigger: (state) => {
-            state.trigger = !state.trigger
+            state.menuTrigger = !state.menuTrigger
         }
     }
 });

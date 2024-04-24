@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {Genres} from "../components/genres";
 import css from './page.module.css'
 import {FilterByGenres} from "../components/genres";
 import {useAppDispatch, useAppSelector} from "../hooks";
-import {genreActions} from "../redux";
+import {genreActions, menuActions} from "../redux";
 import {FilterByGenresPagination} from "../components/genres";
 const GenresPage = () => {
     const {trigger, genresId} = useAppSelector(state => state.genre);
     const dispatch = useAppDispatch();
-    console.log(trigger)
-    console.log(genresId)
+    useEffect(() => {
+        dispatch(menuActions.resetTrigger())
+    }, [dispatch])
     return (
         <div className={css.Genres}>
             <Genres/>

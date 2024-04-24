@@ -10,6 +10,7 @@ interface IState {
     name: string;
     username: string;
     include_adult: boolean
+    userTrigger: boolean
 }
 let initialState: IState = {
     avatar: null,
@@ -18,6 +19,7 @@ let initialState: IState = {
     name: null,
     id: null,
     photoURL: 'https://image.tmdb.org/t/p/w300',
+    userTrigger: false
 };
 const getUser = createAsyncThunk<IUser>(
     'userSlice/getUser',
@@ -34,7 +36,17 @@ const getUser = createAsyncThunk<IUser>(
 const slice = createSlice({
     name: 'userSlice',
     initialState,
-    reducers:{},
+    reducers:{
+        changeTrigger: (state) => {
+            state.userTrigger = !state.userTrigger
+        },
+        resetTrigger: (state) => {
+            state.userTrigger = false
+        },
+        trueTrigger: (state) => {
+            state.userTrigger = true
+        }
+    },
     extraReducers: builder => {
         builder.addCase(getUser.fulfilled, (state, action) => {
             const {avatar, username, name, include_adult, id} = action.payload;

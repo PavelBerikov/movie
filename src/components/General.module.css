@@ -43,6 +43,17 @@
     border-radius: 5px;
     color: snow;
 }
+.User{
+    width: 200px;
+    height: 300px;
+    position: fixed;
+    z-index: 1000;
+    background-color:  rgba(0, 0, 0, 0.3);
+    top: 50px;
+    left: 0;
+    border-radius: 5px;
+    color: snow;
+}
 .Genre{
     color: snow;
 }

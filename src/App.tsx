@@ -9,12 +9,19 @@ import {useAppSelector} from "./hooks";
 import {FullMenu} from "./components/menu/FullMenu";
 import css from '../src/components/General.module.css'
 import {GenresPage} from "./pages/GenresPage";
+import {FullUserInfo} from "./components/user.info/FullUserInfo";
 const App = () => {
-    const {trigger} = useAppSelector(state => state.menu);
+    const {menuTrigger} = useAppSelector(state => state.menu);
+    const {userTrigger} = useAppSelector(state => state.user);
     return (
         <div style={{display: "flex"}}>
             {
-                trigger &&
+                userTrigger &&
+                <div className={css.User}><FullUserInfo/></div>
+            }
+
+            {
+                menuTrigger &&
 
                 <div className={css.Menu}><FullMenu/></div>
 

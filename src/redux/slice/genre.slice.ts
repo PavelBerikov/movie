@@ -7,7 +7,7 @@ import {IMovie, IMoviesResponse} from "../../interfaces";
 interface IState {
     trigger: boolean;
     genres: IGenre[];
-    genresId: string[];
+    genresId: number[];
     movies: IMovie[];
     page: number;
     prev: number;
@@ -79,9 +79,11 @@ const slice = createSlice({
     extraReducers: builder => {
         builder.addCase(getGenres.fulfilled, (state, action) => {
             state.genres = action.payload.genres
+            console.log(typeof action.payload.genres[0].id)
         })
             .addCase(getFilterMovies.fulfilled, (state, action) => {
                 updateState(state, action)
+
             })
     }
 });

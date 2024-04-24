@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {userActions} from "../../redux/slice/user.slice";
+import {userActions} from "../../redux";
 
 import css from '../General.module.css'
 
@@ -13,7 +13,10 @@ const User = () => {
         dispatch(userActions.getUser())
     }, [dispatch])
     return (
-        <div className={css.Card}>
+        <div className={css.Card}
+             onMouseEnter={() => dispatch(userActions.changeTrigger())}
+             onMouseLeave={() => dispatch(userActions.resetTrigger())}
+        >
             {
                 avatar &&
                 <>

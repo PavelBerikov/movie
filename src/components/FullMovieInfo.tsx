@@ -7,7 +7,7 @@ import {TrailerVideo} from "./TrailerVideo";
 
 
 const FullMovieInfo = () => {
-    const {movieInfo, trigger} = useAppSelector(state => state.fullMovieInfo);
+    const {movieInfo, fullMovieInfoTrigger} = useAppSelector(state => state.fullMovieInfo);
     const {photoURL} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
     const index = localStorage.getItem('id')
@@ -15,7 +15,7 @@ const FullMovieInfo = () => {
     console.log(movieInfo)
     useEffect(() => {
         dispatch(fullMovieInfoActions.getMovieInfo(index))
-    }, [dispatch])
+    }, [dispatch, index])
     return (
         <>
             {
@@ -96,7 +96,7 @@ const FullMovieInfo = () => {
                 </div>
             }
             {
-                trigger &&
+                fullMovieInfoTrigger &&
                 <TrailerVideo/>
             }
         </>
