@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import {useAppDispatch, useAppSelector} from "../hooks";
-import {fullMovieInfoActions} from "../redux";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {fullMovieInfoActions} from "../../redux";
 
-import css from './General.module.css'
+import css from '../General.module.css'
 import {TrailerVideo} from "./TrailerVideo";
 
 
@@ -12,7 +12,9 @@ const FullMovieInfo = () => {
     const dispatch = useAppDispatch();
     const index = localStorage.getItem('id')
     const {poster_path, title, vote_average, tagline, runtime, budget, genres, production_companies, production_countries, release_date} = movieInfo || {};
-    console.log(movieInfo)
+    const stars = Array.from({length: 10}, (_, index) => {
+        return <span key={index} className={css.Star}/>
+    })
     useEffect(() => {
         dispatch(fullMovieInfoActions.getMovieInfo(index))
     }, [dispatch, index])
@@ -20,10 +22,14 @@ const FullMovieInfo = () => {
         <>
             {
                 movieInfo &&
-                <div style={{display: "flex", width: "100%", margin: '15px'}}>
-                    <div style={{margin: '5px', display: "flex", flexDirection: 'column'}}>
+                <div className={css.MovieInfo}>
+                    <div className={css.PosterButtonRating}>
                         <img src={`${photoURL}/${poster_path}`} alt={title} style={{width: "188px", height: '282px'}}/>
-                        <button onClick={() => dispatch(fullMovieInfoActions.changeTrigger())}>watch</button>
+                        <button style={{width: '188px'}} onClick={() => dispatch(fullMovieInfoActions.changeTrigger())}>watch</button>
+                        <div style={{color: 'snow'}}>rate this movie</div>
+                        <div className={css.Rating}>
+                            {stars}
+                        </div>
                     </div>
                     <div style={{marginLeft: '30px', color: 'snow'}}>
                         <div className={css.Info}>
@@ -91,8 +97,6 @@ const FullMovieInfo = () => {
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             }
             {

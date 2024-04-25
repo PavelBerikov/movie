@@ -5,7 +5,7 @@ import {youtubeService} from "../../services";
 
 
 interface IState {
-    response: IYouTubeResponse
+    response: IYouTubeResponse;
 }
 const initialState: IState = {
     response: null

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {useSearchParams} from "react-router-dom";
 import {searchActions} from "../../redux";
-import {Movie} from "../Movie";
+import {Movie} from "../movie.info";
 
 const SearchResults = () => {
     const {photoURL} = useAppSelector(state => state.movies);

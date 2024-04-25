@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {useSearchParams} from "react-router-dom";
 import {genreActions} from "../../redux";
-import {Movie} from "../Movie";
+import {Movie} from "../movie.info";
 
 const FilterByGenres = () => {
     const {photoURL} = useAppSelector(state => state.movies);

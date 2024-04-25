@@ -1,23 +1,25 @@
 import React, {FC} from 'react';
 import {useNavigate} from "react-router-dom";
 
-import {IMovie} from "../interfaces";
-import css from './General.module.css'
-import {movieService} from "../services";
+import {IMovie} from "../../interfaces";
+import css from '../General.module.css'
+import {movieService} from "../../services";
+import {Rating} from "./Rating";
 interface IProps{
     movie: IMovie
     photoURL: string
 }
 const Movie: FC<IProps> = ({movie, photoURL}) => {
     const navigate = useNavigate();
-    const {title, poster_path, id} = movie;
+    const {title, poster_path, id, release_date, vote_average} = movie;
     return (
-        <div onClick={() => {navigate('/movie');movieService.setLocalStorage(`${id}`, title)}} className={css.Movie}>
+        <div onClick={() => {navigate('/movie');movieService.setLocalStorage(`${id}`, title, release_date)}} className={css.Movie}>
             <div style={{margin: '5px'}}>
                 <img src={`${photoURL}/${poster_path}`} alt={title} className={css.Poster}/>
             </div>
             <div>{title}</div>
-            <div className={css.Rating}>
+            <Rating rating={vote_average}/>
+            {/*<div className={css.Rating}>
                 <span className={css.Star}></span>
                 <span className={css.Star}></span>
                 <span className={css.Star}></span>
@@ -28,7 +30,7 @@ const Movie: FC<IProps> = ({movie, photoURL}) => {
                 <span className={css.Star}></span>
                 <span className={css.Star}></span>
                 <span className={css.Star}></span>
-            </div>
+            </div>*/}
         </div>
     );
 };

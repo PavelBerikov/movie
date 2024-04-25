@@ -7,6 +7,8 @@ const keyword = 'keyword'
 const account = 'account/nooob199505'
 const genre = 'genre'
 const list = 'list'
+const rated = 'rated'
+const id = '21124693'
 
 const urls = {
     discoverMovie: `${discover}/${movie}`,
@@ -14,7 +16,9 @@ const urls = {
     getAccInfo: account,
     getMovieInfo: '/movie',
     searchMovie: `${search}/${movie}`,
-    genreMovieList: `${genre}/${movie}/${list}`
+    genreMovieList: `${genre}/${movie}/${list}`,
+    accRatingFilm: `account/${id}/${rated}/${movie}s`,
+    addRating: movie
 }
 
 

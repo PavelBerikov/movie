@@ -4,9 +4,16 @@ import {axiosService} from "./axios.service";
 import {urls} from "../constants";
 import {IUser} from "../interfaces";
 import {IGenresData} from "../interfaces/genres.interface";
+import {IAddRatingResponse, IRating} from "../interfaces/rating.interface";
 
 
 class MovieService{
+    addRating(rating: IRating, id: number):IRes<IAddRatingResponse>{
+        return  axiosService.post(`${urls.addRating}/${id}`, rating)
+    }
+    getRatingResult():IRes<IMoviesResponse>{
+        return axiosService.get(urls.accRatingFilm)
+    }
     searchByGenre(page: string = '1',  with_genres: string): IRes<IMoviesResponse>{
         return axiosService.get(urls.discoverMovie, {params: {with_genres, page}})
     }
@@ -25,24 +32,21 @@ class MovieService{
     getMovieInfo(id: string): IRes<IMovieInfo>{
         return axiosService.get(`${urls.getMovieInfo}/${id}`)
     }
-    setLocalStorage(id: string, title: string):void{
+    setLocalStorage(id: string, title: string, release_date: string):void{
         localStorage.setItem('id', id)
         localStorage.setItem('title', title)
+        localStorage.setItem('release_date', release_date)
     }
     getLocalStorage():void{
         localStorage.getItem('id')
         localStorage.getItem('title')
+        localStorage.getItem('release_date')
     }
     deleteStorage():void{
         localStorage.removeItem('id')
         localStorage.removeItem('title')
+        localStorage.removeItem('release_date')
     }
-    /*getMovies(page:number = 1):IRes<IMovieData>{
-        return  axiosService.get(urls.discoverMovie, {params: {page}})
-    }
-    search(query: string, page: string|number = 1):IRes<ISearch>{
-        return axiosService.get(urls.searchKeyword, {params: {query, page}})
-    }*/
 }
 
 export const movieService = new MovieService()

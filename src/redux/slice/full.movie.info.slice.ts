@@ -31,7 +31,7 @@ const slice = createSlice({
         changeTrigger: (state) => {
             state.fullMovieInfoTrigger = !state.fullMovieInfoTrigger
         },
-        falseTrigger: (state) => {
+        resetTrigger: (state) => {
             state.fullMovieInfoTrigger = false
         }
     },

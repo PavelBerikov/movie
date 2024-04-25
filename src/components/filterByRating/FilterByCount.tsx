@@ -3,7 +3,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {useSearchParams} from "react-router-dom";
 import {fullMovieInfoActions, moviesActions} from "../../redux";
 
-import {Movie} from "../Movie";
+import {Movie} from "../movie.info";
 import {movieService} from "../../services";
 
 const FilterByCount: FC = () => {
@@ -11,7 +11,7 @@ const FilterByCount: FC = () => {
     const dispatch = useAppDispatch();
     const [query, setQuery] = useSearchParams();
     useEffect(() => {
-        dispatch(fullMovieInfoActions.falseTrigger())
+        dispatch(fullMovieInfoActions.resetTrigger())
         movieService.deleteStorage()
         if (query.get('page') === null) {
             setQuery({ page: '1' });
