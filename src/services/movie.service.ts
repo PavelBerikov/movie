@@ -1,5 +1,5 @@
 import {IRes} from "../types";
-import {IMovieInfo, IMoviesResponse} from "../interfaces";
+import {IMovieInfo, IMovieRatingResponse, IMoviesResponse} from "../interfaces";
 import {axiosService} from "./axios.service";
 import {urls} from "../constants";
 import {IUser} from "../interfaces";
@@ -9,9 +9,9 @@ import {IAddRatingResponse, IRating} from "../interfaces/rating.interface";
 
 class MovieService{
     addRating(rating: IRating, id: number):IRes<IAddRatingResponse>{
-        return  axiosService.post(`${urls.addRating}/${id}`, rating)
+        return  axiosService.post(`${urls.addRating}/${id}/rating`, rating)
     }
-    getRatingResult():IRes<IMoviesResponse>{
+    getRatingResult():IRes<IMovieRatingResponse>{
         return axiosService.get(urls.accRatingFilm)
     }
     searchByGenre(page: string = '1',  with_genres: string): IRes<IMoviesResponse>{

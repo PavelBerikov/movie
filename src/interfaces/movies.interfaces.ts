@@ -16,10 +16,13 @@ export interface IMovie{
 }
 export interface IMoviesResponse {
     page: number;
-    results: IMovie[] | IMovieWithRating[];
+    results: IMovie[];
     total_pages: number;
     total_results: number;
 }
 export interface IMovieWithRating extends IMovie {
     rating: number;
+}
+export interface IMovieRatingResponse extends IMoviesResponse{
+    results: IMovieWithRating[]
 }
