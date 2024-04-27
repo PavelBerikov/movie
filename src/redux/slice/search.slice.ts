@@ -2,6 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IMovie, IMovieInfo, IMoviesResponse} from "../../interfaces";
 import {AxiosError} from "axios";
 import {movieService} from "../../services";
+import {updateState} from "./genre.slice";
 
 
 interface IState {
@@ -58,20 +59,7 @@ const slice = createSlice({
     },
     extraReducers: builder => {
         builder.addCase(getResult.fulfilled, (state, action) => {
-            const {page, results, total_pages} = action.payload;
-            state.results = results
-            state.page = page
-            state.total_page = total_pages
-            if (page === 1){
-                state.prev = null
-                state.next = page + 1
-            }if (page === total_pages){
-                state.next = null
-                state.prev = page - 1
-            }else {
-                state.prev = page - 1
-                state.next = page + 1
-            }
+            updateState(state, action)
         })
             .addCase(createMovies.fulfilled, (state, action) => {
                 state.movies.push(action.payload)

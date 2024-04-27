@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {IMovie} from "../../interfaces";
 import css from '../General.module.css'
 import {movieService} from "../../services";
-import {Rating} from "./Rating";
+import {Rating} from "../movie.rating";
 interface IProps{
     movie: IMovie
     photoURL: string

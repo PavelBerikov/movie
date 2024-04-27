@@ -10,6 +10,7 @@ import {FullMenu} from "./components/menu/FullMenu";
 import css from '../src/components/General.module.css'
 import {GenresPage} from "./pages/GenresPage";
 import {FullUserInfo} from "./components/user.info/FullUserInfo";
+import {MyRatedMoviesPage} from "./pages/MyRatedMoviesPage";
 const App = () => {
     const {menuTrigger} = useAppSelector(state => state.menu);
     const {userTrigger} = useAppSelector(state => state.user);
@@ -34,6 +35,7 @@ const App = () => {
                 <Route path={'movie'} element={<MovieInfoPage/>}/>
                 <Route path={'search'} element={<SearchPage/>}/>
                 <Route path={'genres'} element={<GenresPage/>}/>
+                <Route path={'rated_movies'} element={<MyRatedMoviesPage/>}/>
 
             </Routes>
         </div>

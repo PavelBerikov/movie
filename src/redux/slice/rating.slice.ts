@@ -3,14 +3,22 @@ import {IMovieRatingResponse, IMovieWithRating} from "../../interfaces";
 import {AxiosError} from "axios";
 import {movieService} from "../../services";
 import {IAddRatingResponse, IRating} from "../../interfaces/rating.interface";
+import {updateState} from "./genre.slice";
 
 interface IState {
-    ratedMovies: IMovieWithRating[]
+    page: number;
+    next: number;
+    prev: number;
+    movies: IMovieWithRating[]
     ratingResponse: IAddRatingResponse
 }
 let initialState:IState = {
-    ratedMovies: [],
-    ratingResponse: null
+    movies: [],
+    ratingResponse: null,
+    prev: null,
+    page: null,
+    next: null
+
 };
 const addRating = createAsyncThunk<IAddRatingResponse, {addRating: IRating, id: number}>(
     'ratingSlice/addRating',
@@ -39,16 +47,17 @@ const getRatedMovies = createAsyncThunk<IMovieRatingResponse>(
 const slice = createSlice({
     name: 'ratingSlice',
     initialState,
-    reducers:{},
+    reducers:{
+        resetRatingResponse: (state) => {
+            state.ratingResponse = null
+        }
+    },
     extraReducers: builder => {
         builder.addCase(getRatedMovies.fulfilled, (state, action) => {
-            const {results, page} = action.payload;
-            state.ratedMovies = results
-            console.log(state.ratedMovies)
+            updateState(state, action)
         })
             .addCase(addRating.fulfilled, (state, action) => {
                 state.ratingResponse = action.payload
-                console.log(state.ratingResponse)
             })
     }
 });

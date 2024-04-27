@@ -23,7 +23,7 @@ let initialState: IState = {
     trigger: false
 };
 export const updateState = (state: any, action: any) => {
-    const { results, page } = action.payload;
+    const {results, page} = action.payload;
     state.movies = results;
     state.page = page;
     state.prev = page !== 1 ? page - 1 : null;
