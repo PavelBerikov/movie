@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {fullMovieInfoActions, ratingActions} from "../../redux";
+import {fullMovieInfoActions} from "../../redux";
 
 import css from '../General.module.css'
 import {TrailerVideo} from "./TrailerVideo";
@@ -13,9 +13,9 @@ const FullMovieInfo = () => {
     const dispatch = useAppDispatch();
     const index = localStorage.getItem('id')
     const {poster_path, title, vote_average, tagline, runtime, budget, genres, production_companies, production_countries, release_date} = movieInfo || {};
-    useEffect(() => {
+    /*useEffect(() => {
         dispatch(ratingActions.getRatedMovies())
-    }, [dispatch])
+    }, [dispatch])*/
     useEffect(() => {
         dispatch(fullMovieInfoActions.getMovieInfo(index))
     }, [dispatch, index])

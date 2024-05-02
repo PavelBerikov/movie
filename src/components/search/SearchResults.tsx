@@ -7,7 +7,7 @@ import {Movie} from "../movie.info";
 const SearchResults = () => {
     const {photoURL} = useAppSelector(state => state.movies);
     const dispatch = useAppDispatch();
-    const {results} = useAppSelector(state => state.search);
+    const {movies} = useAppSelector(state => state.search);
     const [query] = useSearchParams();
     useEffect(() => {
         dispatch(searchActions.getResult({query: query.get('keyword'), page: query.get('page')}))
@@ -15,7 +15,7 @@ const SearchResults = () => {
     return (
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px'}}>
             {
-                results.map(result => <Movie movie={result} photoURL={photoURL} key={result.id}/>)
+                movies.map(movie => <Movie movie={movie} photoURL={photoURL} key={movie.id}/>)
             }
 
 

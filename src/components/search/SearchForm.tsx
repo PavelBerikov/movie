@@ -6,13 +6,14 @@ import {useAppDispatch} from "../../hooks";
 import {searchActions} from "../../redux";
 
 const SearchForm = () => {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, reset} = useForm();
     const [,setQuery] = useSearchParams();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const goSearch = (data: any) => {
         setQuery(prev => ({...prev, keyword: data.value ,page: '1'}))
         dispatch(searchActions.getKeyWord(data.value))
+        reset()
 
     };
     return (

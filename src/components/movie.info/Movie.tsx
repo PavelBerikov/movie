@@ -1,12 +1,12 @@
 import React, {FC} from 'react';
 import {useNavigate} from "react-router-dom";
 
-import {IMovie} from "../../interfaces";
+import {IMovie, IMovieWithRating} from "../../interfaces";
 import css from '../General.module.css'
 import {movieService} from "../../services";
 import {Rating} from "../movie.rating";
 interface IProps{
-    movie: IMovie
+    movie: IMovie | IMovieWithRating
     photoURL: string
 }
 const Movie: FC<IProps> = ({movie, photoURL}) => {
@@ -19,18 +19,9 @@ const Movie: FC<IProps> = ({movie, photoURL}) => {
             </div>
             <div>{title}</div>
             <Rating rating={vote_average}/>
-            {/*<div className={css.Rating}>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-                <span className={css.Star}></span>
-            </div>*/}
+            {'rating' in movie && (
+                <div>My rating is {(movie as IMovieWithRating).rating}</div>
+            )}
         </div>
     );
 };

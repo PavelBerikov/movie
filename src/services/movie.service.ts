@@ -11,8 +11,8 @@ class MovieService{
     addRating(rating: IRating, id: number):IRes<IAddRatingResponse>{
         return  axiosService.post(`${urls.addRating}/${id}/rating`, rating)
     }
-    getRatingResult():IRes<IMovieRatingResponse>{
-        return axiosService.get(urls.accRatingFilm)
+    getRatingResult(page: string = '1'):IRes<IMovieRatingResponse>{
+        return axiosService.get(urls.accRatingFilm, {params: {page}})
     }
     searchByGenre(page: string = '1',  with_genres: string): IRes<IMoviesResponse>{
         return axiosService.get(urls.discoverMovie, {params: {with_genres, page}})

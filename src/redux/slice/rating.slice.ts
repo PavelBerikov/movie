@@ -32,11 +32,11 @@ const addRating = createAsyncThunk<IAddRatingResponse, {addRating: IRating, id: 
         }
     }
 )
-const getRatedMovies = createAsyncThunk<IMovieRatingResponse>(
+const getRatedMovies = createAsyncThunk<IMovieRatingResponse, string>(
     'ratingSlice/getRatedMovies',
-    async (_,{rejectWithValue}) => {
+    async (page,{rejectWithValue}) => {
         try {
-            const {data} = await movieService.getRatingResult();
+            const {data} = await movieService.getRatingResult(page);
             return data
         }catch (e) {
             const err = e as AxiosError
@@ -55,6 +55,7 @@ const slice = createSlice({
     extraReducers: builder => {
         builder.addCase(getRatedMovies.fulfilled, (state, action) => {
             updateState(state, action)
+            console.log(action.payload)
         })
             .addCase(addRating.fulfilled, (state, action) => {
                 state.ratingResponse = action.payload

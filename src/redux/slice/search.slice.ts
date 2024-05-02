@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {IMovie, IMovieInfo, IMoviesResponse} from "../../interfaces";
+import {IMovie, IMoviesResponse} from "../../interfaces";
 import {AxiosError} from "axios";
 import {movieService} from "../../services";
 import {updateState} from "./genre.slice";
@@ -10,21 +10,19 @@ interface IState {
     prev: number;
     next: number;
     results: IMovie[];
-    total_page: number;
     keyWord: string
-    movies: IMovieInfo[]
+    movies: IMovie[]
 }
 let initialState:IState = {
     page: null,
     prev: null,
     next: null,
     results: [],
-    total_page: null,
     keyWord: null,
     movies: []
 };
 
-const createMovies = createAsyncThunk<IMovieInfo, string>(
+/*const createMovies = createAsyncThunk<IMovieInfo, string>(
     'searchSlice/createMovies',
     async (id, {rejectWithValue}) => {
         try {
@@ -35,7 +33,7 @@ const createMovies = createAsyncThunk<IMovieInfo, string>(
             return rejectWithValue(err.response.data)
         }
     }
-)
+)*/
 const getResult = createAsyncThunk<IMoviesResponse, {query: string, page:string}>(
     'searchSlice/getResult',
     async ({query, page}, {rejectWithValue}) => {
@@ -61,9 +59,10 @@ const slice = createSlice({
         builder.addCase(getResult.fulfilled, (state, action) => {
             updateState(state, action)
         })
-            .addCase(createMovies.fulfilled, (state, action) => {
+            /*.addCase(createMovies.fulfilled, (state, action) => {
                 state.movies.push(action.payload)
-            })
+                console.log(action.payload)
+            })*/
     }
 });
 
@@ -71,7 +70,7 @@ const {reducer: searchReducer, actions} = slice;
 const searchActions = {
     ...actions,
     getResult,
-    createMovies
+    /*createMovies*/
 }
 
 export {
