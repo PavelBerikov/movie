@@ -7,8 +7,6 @@ const HomePage = () => {
         <div className={css.Home}>
             <FilterByCount/>
             <FilterByCountPagination/>
-
-
         </div>
     );
 };

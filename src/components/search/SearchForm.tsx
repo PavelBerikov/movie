@@ -4,6 +4,7 @@ import {useNavigate, useSearchParams} from "react-router-dom";
 
 import {useAppDispatch} from "../../hooks";
 import {searchActions} from "../../redux";
+import css from './search.module.css'
 
 const SearchForm = () => {
     const {register, handleSubmit, reset} = useForm();
@@ -18,8 +19,8 @@ const SearchForm = () => {
     };
     return (
         <form onSubmit={handleSubmit(goSearch)} style={{display: 'flex', marginRight: '10px'}}>
-            <input type="text" placeholder={'search...'} {...register('value')}/>
-            <button onClick={() => navigate('/search')}>Go!</button>
+            <input style={{backgroundColor: 'transparent', borderTop: 'none', borderLeft: 'none', borderRight: 'none', color: "black"}} type="text" placeholder={'search...'} {...register('value')}/>
+            <button className={css.SearchButton} onClick={() => navigate('/search')}>🔍</button>
         </form>
     );
 };

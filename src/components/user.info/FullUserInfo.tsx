@@ -10,7 +10,7 @@ const FullUserInfo = () => {
     return (
         <div onMouseEnter={() => dispatch(userActions.trueTrigger())}
             onMouseLeave={() => dispatch(userActions.resetTrigger())}
-             style={{height: '100px'}}
+             style={{height: '40px', color: 'black'}}
         >
             <div>Username: {username}</div>
             <div>User Id: {id}</div>

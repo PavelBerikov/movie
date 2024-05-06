@@ -1,6 +1,8 @@
 .Movie{
-    border: 2px solid silver;
-    border-radius: 15px;
+    /*border: 2px solid black;*/
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     padding: 10px;
     margin: 10px;
     width: 150px;
@@ -8,6 +10,11 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    color: black;
+    font-weight: bold;
+
+    /*background-color: rgba(65, 105, 225, 0.2);*/
+
 }
 .Info{
     display: flex;
@@ -20,18 +27,8 @@
     height: 120px;
     border-radius: 5px;
 }
-.Card{
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    color: salmon;
-}
-.Avatar{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 10px;
-}
+
+
 .Menu{
     width: 200px;
     height: 300px;
@@ -50,7 +47,7 @@
     z-index: 1000;
     background-color:  rgba(0, 0, 0, 0.3);
     top: 50px;
-    left: 0;
+    right: 0;
     border-radius: 5px;
     color: snow;
 }

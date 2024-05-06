@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {userActions} from "../../redux";
 
-import css from '../General.module.css'
+import css from './user.module.css'
 
 
 
